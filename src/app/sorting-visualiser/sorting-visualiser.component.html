@@ -1,0 +1,12 @@
+
+  <div class="sorting-visualiser-container">
+    <div class="sorting-bars-wrapper">
+      <div class="sorting-bar" 
+        *ngFor="let obj of sortingPoll" 
+        [ngStyle]="{'width.px': 1000 / arraySize, 'height.px': obj.value * 2, 'background-color': obj.color}"  
+      >
+      </div>
+    </div>
+  </div>
+
+

@@ -1,0 +1,50 @@
+<div class="control-panel">
+  <div class="control-panel-content-wrapper">
+    <h2>Settings</h2>
+    <mat-form-field appearance="outline">
+      <mat-label>Algorithm</mat-label>
+      <mat-select [ngModel]="algorithm" (ngModelChange)="pickAlgorithm($event)" name="algortihm" >
+        <mat-optgroup *ngFor="let group of algorithmGroups" [disabled]="group.disabled" [label]="group.name">
+          <mat-option *ngFor="let alg of group.algorithm" [value]="alg">
+            {{alg.viewValue}}
+          </mat-option>
+        </mat-optgroup>
+      </mat-select>
+    </mat-form-field>
+    <ng-container *ngIf="algorithm">
+      <div *ngIf="algorithm.type == AlgorithmType.Sorting">
+        <h3>Array Size</h3>
+        <mat-slider
+          thumbLabel
+          tickInterval="1"
+          min="10"
+          max="100"
+          style="width: 100%;"
+          [value]="arraySize"
+          (change)="setArraySize($event.value)"
+        ></mat-slider>
+      </div>
+      <div>
+        <h3>Speed</h3>
+        <mat-slider
+          min="{{minSpeed}}"
+          max="{{maxSpeed}}"
+          style="width: 100%;"
+          [value]="speed"
+          (change)="setSpeed($event.value)"
+        ></mat-slider>
+      </div>
+      <div style="text-align: center;">
+        <button *ngIf="algorithm.type == AlgorithmType.PathFinder" mat-raised-button color="accent" (click)="generateMaze()">Generate Labirinth</button>
+      </div>
+    </ng-container>
+    <!-- <div class="action-bar">
+      <button *ngIf="algorithm" mat-raised-button color="primary" class="action-btn" (click)="play()" [disabled]="isPlaying">
+        {{algorithm.type == AlgorithmType.Sorting ? 'Sort' : 'Find'}}
+      </button>
+    </div> -->
+  </div>
+  
+</div>
+
+

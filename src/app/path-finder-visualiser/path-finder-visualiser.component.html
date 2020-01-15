@@ -1,0 +1,14 @@
+
+  <div class="path-finder-visualiser-container">
+    <div class="table-wrapper">
+      <table>
+        <tr *ngFor="let row of grid">
+          <td *ngFor="let cell of row" id="{{ cell.id }}" [className]="CellType[cell.type]">
+            {{cell.id == start ? '*' : cell.id == finish ? '#' : ''}}
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+

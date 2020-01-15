@@ -1,0 +1,38 @@
+.sorting-visualiser-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sorting-bars-wrapper {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  width: 80%;
+  min-height: 300px;
+}
+
+.sorting-bar {
+  width: 10px;
+  margin: 1px;
+  background-color: #afd2e9;
+  border-radius: 3px 3px 0 0;
+}
+
+.sidebar > * {
+  width: 100%;
+}
+
+.limitIndex {
+  background-color: #9d96b8; 
+}
+
+.currentIndex {
+  background-color: #886176;
+}
+
+.middleIndex {
+  background-color: goldenrod;
+}
